@@ -1,6 +1,10 @@
+import CallToAction from "../components/CallToAction";
+
 function Header() {
     return (
-        <div></div>
+        <header>
+            <CallToAction />
+        </header>
     );
 }
 

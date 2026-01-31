@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "img": "menu/greekSalad.jpg",
+        "name": "Greek Salad",
+        "description": "The famous green salad of crispy lettuce, peppers, olives, and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
+        "price": "$12.99"
+    },
+    {
+        "id": 2,
+        "img": "menu/bruschetta.jpeg",
+        "name": "Bruschetta",
+        "description": "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
+        "price": "$5.99"
+    },
+    {
+        "id": 3,
+        "img": "menu/lemonDessert.jpg",
+        "name": "Lemon Dessert",
+        "description": "A traditional Mediterranean dessert featuring layers of light, fluffy lemon mousse on a bed of crushed biscotti, topped with fresh lemon zest.",
+        "price": "$5.99"
+    },
+    {
+        "id": 4,
+        "img": "menu/pasta.jpg",
+        "name": "Pasta",
+        "description": "Handmade pasta tossed in our signature tomato and basil sauce, finished with aged parmesan and a drizzle of extra virgin olive oil.",
+        "price": "$14.99"
+    },
+    {
+        "id": 6,
+        "img": "menu/grilledFish.jpg",
+        "name": "Grilled Fish",
+        "description": "Catch of the day grilled to perfection, seasoned with Mediterranean herbs and served with a side of roasted vegetables and lemon butter sauce.",
+        "price": "$18.99"
+    }
+
+]
