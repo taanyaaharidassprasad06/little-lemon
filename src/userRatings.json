@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "name": "Sarah",
+        "rating": "⭐️⭐️⭐️⭐️⭐️",
+        "comment": "The Greek salad was incredibly fresh! Our server made great recommendations. Perfect spot for family gatherings!"
+    },
+    {
+        "id": "2",
+        "name": "Michael",
+        "rating": "⭐️⭐️⭐️⭐️⭐️",
+        "comment": "The lemon dessert is a must-try - perfect balance of sweet and tart. Cozy ambiance, ideal for date night!"
+    },
+    {
+        "id": "3",
+        "name": "Emily",
+        "rating": "⭐️⭐️⭐️⭐️⭐️",
+        "comment": "The bruschetta was outstanding with the freshest toppings. Great service and very reasonable prices!"
+    },
+    {
+        "id": "4",
+        "name": "David",
+        "rating": "⭐️⭐️⭐️⭐️⭐️",
+        "comment": "Warm atmosphere and the staff made us feel like family. The Greek salad and lemon dessert were exceptional!"
+    }
+]

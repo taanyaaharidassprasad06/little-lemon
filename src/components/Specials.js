@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import itemsData from '../specialsItems.json';
-import SpecialsCard from "./SpecialsCard";
+import SpecialsCard from "./SpecialsCard.js";
 
 function Specials() {
     const [items, setItems] = useState([]);
     
     useEffect(() => {
         setItems(itemsData);
-    }, [])
+    }, []);
     
     return (
         <div className="specials">
