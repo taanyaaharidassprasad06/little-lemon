@@ -340,43 +340,7 @@ body {
   transform: scale(1.05);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* FOOTER */
-
 .footer {
   background-color: #495E57;
   color: white;
@@ -423,3 +387,8 @@ body {
   text-decoration: underline;
 }
 
+/* BOOKING PAGE */
+.form {
+  padding-top: 100px;
+  background-color: #495E57;
+}

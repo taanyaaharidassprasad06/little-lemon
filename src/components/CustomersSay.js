@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import reviews from '../userRatings.json';
-import RatingCard from "./RatingCard.js";
+import RatingCard from './RatingCard';
 
 function CustomersSays() {
     const [ratings, setRatings] = useState([]);
