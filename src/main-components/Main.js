@@ -1,7 +1,7 @@
-import CallToAction from "../components/CallToAction";
-import Specials from "../components/Specials";
-import CustomersSays from "../components/CustomersSay";
-import Chicago from "../components/Chicago";
+import CallToAction from '../components/CallToAction';
+import Specials from '../components/Specials';
+import CustomersSays from '../components/CustomersSay';
+import Chicago from '../components/Chicago';
 
 function Main() {
     return (

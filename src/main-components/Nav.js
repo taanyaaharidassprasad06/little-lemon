@@ -5,9 +5,9 @@ import '../App.css';
 function Nav() {
     return(
         <nav className="navigation">
-            <a className="logo-container" href="/home">
+            <Link className="logo-container" to="/">
                 <img className="logo" src={logo} alt="little lemon logo"/>
-            </a>
+            </Link>
             <ul className="nav-link-container">
                 <li className="nav-link"><Link to="/">Home</Link></li>
                 <li className="nav-link"><a href="/#">About</a></li>

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import itemsData from '../specialsItems.json';
-import SpecialsCard from "./SpecialsCard.js";
+import SpecialsCard from './SpecialsCard';
 
 function Specials() {
     const [items, setItems] = useState([]);
