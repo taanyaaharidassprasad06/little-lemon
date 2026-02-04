@@ -12,6 +12,10 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
     const [occasion, setOccasion] = useState("");
     const [seat, setSeat] = useState("");
 
+    const isFormValid = () => {
+        return name.trim() && email && phone && guests >= 1 && date && selectedTime && occasion && seat;
+    }
+
     const submitHandler = (e) => {
         e.preventDefault();
 
@@ -43,6 +47,7 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     placeholder="enter full name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    required
                     aria-required="true"
                 />
                 <label htmlFor="email">Email Address: </label>
@@ -53,6 +58,7 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     aria-required="true"
+                    required
                 />
                 <label htmlFor="phone">Mobile Number: </label>
                 <input 
@@ -62,8 +68,11 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     aria-required="true"
+                    required
+                    pattern="[0-9]{10}"
                 />
                 <label htmlFor="guests">Number of Guests: </label>
+                <h6>Note: If you need a reservation for more than 10 people, please call us to arrange!</h6>
                 <input 
                     id="guests" 
                     type="number" 
@@ -71,6 +80,9 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     value={guests}
                     onChange={(e) => setGuests(e.target.value)}
                     aria-required="true"
+                    required
+                    min="1"
+                    max="10"
                 />
                 <label htmlFor="date">Reservation Date: </label>
                 <input 
@@ -79,6 +91,8 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     value={date}
                     onChange={(e) => {setDate(e.target.value); dispatch({type: 'update_times', date: e.target.value})}}
                     aria-required="true"
+                    required
+                    min={today}
                 />
                 <label htmlFor="time">Reservation Time: </label>
                 <select 
@@ -86,7 +100,9 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     value={selectedTime}
                     onChange={(e) => setSelectedTime(e.target.value)}
                     aria-required="true"
+                    required
                  >
+                    <option value="" disabled>Select a time</option>
                     {times.map((time => (
                         <BookingSlot key={time} timeSelected={time} />
                     )))}
@@ -96,7 +112,9 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     id="occasion" 
                     value={occasion}
                     onChange={(e) => setOccasion(e.target.value)}
+                    required
                 >
+                    <option value="" disabled>Select occasion</option>
                     <option value="none">No Occasion</option>
                     <option value="birthday">Birthday</option>
                     <option value="anniversary">Anniversary</option>
@@ -110,6 +128,7 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                         value="indoor"
                         checked={seat === "indoor"}
                         onChange={(e) => setSeat(e.target.value)}
+                        required
                     /> Indoor
                 </label>
                 <label>
@@ -130,7 +149,7 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                         onChange={(e) => setSeat(e.target.value)}
                     /> No Preference
                 </label>
-                <button type="submit">Reserve</button>
+                <button type="submit" disabled={!isFormValid}>Reserve</button>
             </fieldset>
         </form>
     );
