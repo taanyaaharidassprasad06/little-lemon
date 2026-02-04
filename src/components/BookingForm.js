@@ -1,19 +1,34 @@
 import { useState } from 'react';
 import BookingSlot from './BookingSlot';
 
-function BookingForm( { times, submit, dispatch } ) {
+function BookingForm( { times, removeTime, dispatch, submitForm } ) {
+    const today = new Date().toLocaleDateString("en-CA");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [guests, setGuests] = useState("");
-    const [date, setDate] = useState("");
+    const [date, setDate] = useState(today);
     const [selectedTime, setSelectedTime] = useState("");
     const [occasion, setOccasion] = useState("");
     const [seat, setSeat] = useState("");
 
     const submitHandler = (e) => {
         e.preventDefault();
-        submit(selectedTime);
+
+        const formData = {
+            name,
+            email,
+            phone,
+            guests,
+            date,
+            selectedTime,
+            occasion,
+            seat
+        };
+
+        submitForm(formData);
+        removeTime(selectedTime);
+
         setSelectedTime("");
     }
 
@@ -62,7 +77,7 @@ function BookingForm( { times, submit, dispatch } ) {
                     id="date" 
                     type="date"
                     value={date}
-                    onChange={(e) => {setDate(e.target.value); dispatch({type: 'update_time', date: e.target.value})}}
+                    onChange={(e) => {setDate(e.target.value); dispatch({type: 'update_times', date: e.target.value})}}
                     aria-required="true"
                 />
                 <label htmlFor="time">Reservation Time: </label>
@@ -73,7 +88,7 @@ function BookingForm( { times, submit, dispatch } ) {
                     aria-required="true"
                  >
                     {times.map((time => (
-                        <BookingSlot timeSelected={time} />
+                        <BookingSlot key={time} timeSelected={time} />
                     )))}
                 </select>
                 <label htmlFor="occasion">Occasion: </label>

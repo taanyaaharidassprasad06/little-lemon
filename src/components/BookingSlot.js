@@ -1,6 +1,6 @@
 function BookingSlot( { timeSelected } ) {
     return (
-        <option key={timeSelected} value={timeSelected}>{timeSelected}</option>
+        <option value={timeSelected}>{timeSelected}</option>
     );
 }
 
