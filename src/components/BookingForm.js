@@ -8,15 +8,19 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [guests, setGuests] = useState("");
-    const [date, setDate] = useState();
+    const [date, setDate] = useState("");
     const [selectedTime, setSelectedTime] = useState("");
     const [occasion, setOccasion] = useState("");
     const [seat, setSeat] = useState("");
 
     const [errors, setErrors] = useState({});
 
+    const getPhoneDigits = () => {
+        return phone.replace(/\D/g, ''); // replaces all non digit characters with ''
+    }
+
     const isFormValid = () => {
-        return name.trim() && email && phone && guests >= 1 && date && selectedTime && occasion && seat;
+        return name.trim() && email && getPhoneDigits().length === 10 && guests >= 1 && date && selectedTime && occasion && seat;
     }
 
     const validateForm = (fieldName, value) => {
@@ -30,7 +34,9 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                 break;
             case "phone":
                 if(!value) return "Phone number is required";
-                if(value < 11) return "Please enter a valid 10 digit phone number!";
+                const digits = value.replace(/\D/g, '');
+                if(!digits) return "Please double check phone number!"
+                if(digits.length !== 10) return "Please enter a valid 10 digit phone number!";
                 break;
             case "guests":
                 if(!value) return "Number of guests is required";
