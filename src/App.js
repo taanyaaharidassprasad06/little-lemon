@@ -29,7 +29,9 @@ function App() {
 
       // save updated array back to local storage
       writeToStorage(existingBookings);
-      navigate("/confirmed");
+
+      // navigate to confirmation page and pass booking details via state
+      navigate("/confirmed", { state: formData }); 
     }
   }
 
