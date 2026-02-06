@@ -20,7 +20,7 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
     }
 
     const isFormValid = () => {
-        return name.trim() && email && getPhoneDigits().length === 10 && guests >= 1 && date && selectedTime && occasion && seat;
+        return name.trim() && email && getPhoneDigits().length === 10 && (guests >= 1 && guests <= 10) && date && selectedTime && occasion && seat;
     }
 
     const validateForm = (fieldName, value) => {
@@ -40,18 +40,18 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                 break;
             case "guests":
                 if(!value) return "Number of guests is required";
+                if(value < 1) return "At least 1 guest is required!"
+                if(value > 10) return "Max number of guests is 10!"
                 break;
             case "date":
-                if(!value) return "Reservation date required";
+                if(!value) return "Reservation date is required";
+                if(value < today) return "Please select a date that is in the future!";
                 break;
             case "selectedTime":
                 if(!value) return "Please select a reservation time";
                 break;
             case "occasion":
                 if(!value) return "Please select an occasion";
-                break;
-            case "seat":
-                if(!value) return "Please select a seating preference";
                 break;
             default:
                 return "";
@@ -174,13 +174,14 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     value={occasion}
                     onChange={(e) => setOccasion(e.target.value)}
                     onBlur={(e) => handleBlur("occasion", e.target.value)}
+                    aria-required="true"
                     required
                 >
                     <option value="" disabled>Select occasion</option>
                     <option value="none">No Occasion</option>
                     <option value="birthday">Birthday</option>
                     <option value="anniversary">Anniversary</option>
-                    <option value="engagement">Engagment</option>
+                    <option value="engagement">Engagement</option>
                 </select>
                 {errors.occasion && <p>{errors.occasion}</p>}
                 <legend>Seating Preference: </legend>
@@ -191,7 +192,6 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                         value="indoor"
                         checked={seat === "indoor"}
                         onChange={(e) => setSeat(e.target.value)}
-                        onBlur={(e) => handleBlur("seat", e.target.value)}
                         required
                     /> Indoor
                 </label>
@@ -213,7 +213,6 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                         onChange={(e) => setSeat(e.target.value)}
                     /> No Preference
                 </label>
-                {errors.seat && <p>{errors.seat}</p>}
                 <button type="submit" disabled={!isFormValid()}>Reserve</button>
             </fieldset>
         </form>
