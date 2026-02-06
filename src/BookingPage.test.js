@@ -1,4 +1,3 @@
-import { render, screen } from '@testing-library/react';
 import { initializeTimes, updateTimes } from './components/BookingPage';
 
 beforeEach(() => {
