@@ -388,7 +388,78 @@ body {
 }
 
 /* BOOKING PAGE */
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 .form {
-  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  align-items: center;
+}
+
+.form-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  padding: 12px;
+}
+
+.form-label {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.seating legend {
+  margin-bottom: 20px;
+}
+
+.radio-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+.reserve-btn {
   background-color: #495E57;
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  margin: auto;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.reserve-btn:hover {
+  background-color: #F4CE14;
+  color: black;
+}
+
+.reserve-btn:disabled {
+  background-color: rgb(196, 196, 196);
+  color: black;
+}
+
+.notice {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.star {
+  color: red;
+  margin-left: 3px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+  font-style: italic;
 }

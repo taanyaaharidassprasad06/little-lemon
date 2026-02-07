@@ -85,9 +85,9 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
 
     return (
         <form onSubmit={submitHandler} className="form">
-            <h2>Reservation</h2>
-            <fieldset>
-                <label htmlFor="name">Full Name: </label>
+            <h2 className="form-heading">Reservation</h2>
+            <fieldset className="form-input-container">
+                <label htmlFor="name" className="form-label">Full Name<span className="star">*</span>: </label>
                 <input 
                     id="name" 
                     type="text" 
@@ -97,9 +97,10 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     onBlur={(e) => handleBlur("name", e.target.value)}
                     required
                     aria-required="true"
+                    className="form-input"
                 />
-                {errors.name && <p>{errors.name}</p>}
-                <label htmlFor="email">Email Address: </label>
+                {errors.name && <p className="error-message">{errors.name}</p>}
+                <label htmlFor="email" className="form-label">Email Address<span className="star">*</span>: </label>
                 <input 
                     id="email" 
                     type="email" 
@@ -109,9 +110,10 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     onBlur={(e) => handleBlur("email", e.target.value)}
                     aria-required="true"
                     required
+                    className="form-input"
                 />
-                {errors.email && <p>{errors.email}</p>}
-                <label htmlFor="phone">Mobile Number: </label>
+                {errors.email && <p className="error-message">{errors.email}</p>}
+                <label htmlFor="phone" className="form-label">Mobile Number<span className="star">*</span>: </label>
                 <input 
                     id="phone" 
                     type="tel" 
@@ -124,10 +126,11 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     pattern="[0-9]{10}"
                     minLength="10"
                     maxLength="10"
+                    className="form-input"
                 />
-                {errors.phone && <p>{errors.phone}</p>}
-                <label htmlFor="guests">Number of Guests: </label>
-                <h6>Note: If you need a reservation for more than 10 people, please call us to arrange!</h6>
+                {errors.phone && <p className="error-message">{errors.phone}</p>}
+                <label htmlFor="guests" className="form-label">Number of Guests<span className="star">*</span>: </label>
+                <h5 className="notice">Note: If you need a reservation for more than 10 people, please call us to arrange!</h5>
                 <input 
                     id="guests" 
                     type="number" 
@@ -139,9 +142,10 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     required
                     min="1"
                     max="10"
+                    className="form-input"
                 />
-                {errors.guests && <p>{errors.guests}</p>}
-                <label htmlFor="date">Reservation Date: </label>
+                {errors.guests && <p className="error-message">{errors.guests}</p>}
+                <label htmlFor="date" className="form-label">Reservation Date<span className="star">*</span>: </label>
                 <input 
                     id="date" 
                     type="date"
@@ -151,9 +155,10 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     aria-required="true"
                     required
                     min={today}
+                    className="form-input"
                 />
-                {errors.date && <p>{errors.date}</p>}
-                <label htmlFor="time">Reservation Time: </label>
+                {errors.date && <p className="error-message">{errors.date}</p>}
+                <label htmlFor="time" className="form-label">Reservation Time<span className="star">*</span>: </label>
                 <select 
                     id="time"
                     value={selectedTime}
@@ -161,14 +166,15 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     onBlur={(e) => handleBlur("selectedTime", e.target.value)}
                     aria-required="true"
                     required
+                    className="form-input"
                  >
                     <option value="" disabled>Select a time</option>
                     {times.map((time => (
                         <BookingSlot key={time} timeSelected={time} />
                     )))}
                 </select>
-                {errors.selectedTime && <p>{errors.selectedTime}</p>}
-                <label htmlFor="occasion">Occasion: </label>
+                {errors.selectedTime && <p className="error-message">{errors.selectedTime}</p>}
+                <label htmlFor="occasion" className="form-label">Occasion<span className="star">*</span>: </label>
                 <select 
                     id="occasion" 
                     value={occasion}
@@ -176,6 +182,7 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     onBlur={(e) => handleBlur("occasion", e.target.value)}
                     aria-required="true"
                     required
+                    className="form-input"
                 >
                     <option value="" disabled>Select occasion</option>
                     <option value="none">No Occasion</option>
@@ -183,37 +190,41 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                     <option value="anniversary">Anniversary</option>
                     <option value="engagement">Engagement</option>
                 </select>
-                {errors.occasion && <p>{errors.occasion}</p>}
-                <legend>Seating Preference: </legend>
-                <label>
-                    <input 
-                        type="radio"
-                        name="seating"
-                        value="indoor"
-                        checked={seat === "indoor"}
-                        onChange={(e) => setSeat(e.target.value)}
-                        required
-                    /> Indoor
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        name="seating"
-                        value="outdoor"
-                        checked={seat === "outdoor"}
-                        onChange={(e) => setSeat(e.target.value)}
-                    /> Outdoor
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        name="seating"
-                        value="none"
-                        checked={seat === "none"}
-                        onChange={(e) => setSeat(e.target.value)}
-                    /> No Preference
-                </label>
-                <button type="submit" aria-label="On Click" disabled={!isFormValid()}>Reserve</button>
+                {errors.occasion && <p className="error-message">{errors.occasion}</p>}
+                <fieldset className="form-label seating">
+                    <legend>Seating Preference<span className="star">*</span>: </legend>
+                    <div className="radio-container">
+                        <label>
+                            <input 
+                                type="radio"
+                                name="seating"
+                                value="indoor"
+                                checked={seat === "indoor"}
+                                onChange={(e) => setSeat(e.target.value)}
+                                required
+                            /> Indoor
+                        </label>
+                        <label>
+                            <input 
+                                type="radio"
+                                name="seating"
+                                value="outdoor"
+                                checked={seat === "outdoor"}
+                                onChange={(e) => setSeat(e.target.value)}
+                            /> Outdoor
+                        </label>
+                        <label>
+                            <input 
+                                type="radio"
+                                name="seating"
+                                value="none"
+                                checked={seat === "none"}
+                                onChange={(e) => setSeat(e.target.value)}
+                            /> No Preference
+                        </label>
+                    </div>
+                </fieldset>
+                <button type="submit" className="reserve-btn" aria-label="On Click" disabled={!isFormValid()}>Reserve</button>
             </fieldset>
         </form>
     );
