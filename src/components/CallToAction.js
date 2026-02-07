@@ -10,7 +10,7 @@ function CallToAction() {
                 <h2 className="location">Chicago</h2>
                 <p className="hero-description">We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
                 <Link to="/booking">
-                    <button className="btn">Reserve a Table</button>
+                    <button aria-label="On Click" className="btn">Reserve a Table</button>
                 </Link>
             </div>
             <div className="hero-img-container">

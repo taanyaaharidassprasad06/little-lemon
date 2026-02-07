@@ -213,7 +213,7 @@ function BookingForm( { times, removeTime, dispatch, submitForm } ) {
                         onChange={(e) => setSeat(e.target.value)}
                     /> No Preference
                 </label>
-                <button type="submit" disabled={!isFormValid()}>Reserve</button>
+                <button type="submit" aria-label="On Click" disabled={!isFormValid()}>Reserve</button>
             </fieldset>
         </form>
     );

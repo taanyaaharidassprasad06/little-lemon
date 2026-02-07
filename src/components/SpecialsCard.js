@@ -13,7 +13,7 @@ function SpecialsCard( { menuItem } ) {
                 </div>
                 <p className="food-description">{menuItem.description}</p>
             </div>
-            <button className="delivery-btn">Order a delivery <span><img className="delivery-icon" src={icon} alt="icon of person on bike"/></span></button>
+            <button aria-label="On Click" className="delivery-btn">Order a delivery <span><img className="delivery-icon" src={icon} alt="icon of person on bike"/></span></button>
         </article>
     );
 }

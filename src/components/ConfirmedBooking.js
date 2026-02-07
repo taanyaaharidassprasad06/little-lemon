@@ -23,7 +23,7 @@ function ConfirmedBooking() {
             </div>
 
             <Link to="/">
-                <button>Return to Home</button>
+                <button aria-label="On Click">Return to Home</button>
             </Link>
         </div>
     );
