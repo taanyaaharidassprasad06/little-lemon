@@ -601,3 +601,48 @@ fieldset {
   margin-top: 5px;
   font-style: italic;
 }
+
+/* CONFIRMATION SCREEN */
+.confirmation-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 50px;
+}
+
+.confirmation-header {
+  margin-top: 100px;
+  color: #495E57;
+}
+
+.confirmation-message {
+  color: red;
+}
+
+.confirm {
+  font-style: italic;
+}
+
+.receipt {
+  margin: 30px 0px;
+  line-height: 32px;
+  background-color: whitesmoke;
+  padding: 30px;
+}
+
+.home-btn {
+  background-color: #F4CE14;
+  color: black;
+  border-radius: 5px;
+  border: 0px;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 30px 0px;
+}
+
+.home-btn:hover {
+  background-color: #9a820d;
+  color: white;
+}
