@@ -174,6 +174,7 @@ body {
 
 .specials-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
   margin: 70px 0px;
@@ -233,7 +234,6 @@ body {
   color: #333333;
 }
 
-
 .food-description {
   margin-bottom: 50px;
   line-height: 20px;
@@ -262,6 +262,17 @@ body {
   text-decoration: underline #F4CE14;
 }
 
+@media (max-width: 1024px) {
+  .specials-header {
+    flex-direction: column;
+  }
+
+  .menu-btn {
+    margin-top: 50px;
+    width: 250px;
+  }
+}
+
 
 /* CUSTOMER RATINGS */
 .reviews {
@@ -280,6 +291,7 @@ body {
 .reviews-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
   gap: 70px;
@@ -294,7 +306,7 @@ body {
   border-radius: 15px;
   padding: 20px;
   box-shadow: 5px 5px 5px #bbbbbb;
-  background-color: #e7f7ff;
+  background-color: #b8c9c3;
   transition: transform 0.3s ease;
 }
 
@@ -400,7 +412,6 @@ body {
 
 .footer-section-container {
   display: flex;
-  flex-wrap: wrap;
   flex: 1;
   justify-content: center;
   gap: 100px;
@@ -421,6 +432,17 @@ body {
 
 .footer-links a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer-navigation {
+    flex-direction: column;
+  }
+
+  .footer-section-container {
+    flex-direction: column;
+    gap: 50px;
+  }
 }
 
 /* BOOKING PAGE */
