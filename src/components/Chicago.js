@@ -5,7 +5,7 @@ function Chicago() {
     return (
         <section className="introduction-container">
             <div className="intro-text">
-                <h1 className="title">Little Lemon</h1>
+                <h1 className="intro-title">Little Lemon</h1>
                 <h2 className="location">Chicago</h2>
                 <p className="intro-description">
                     Little Lemon is a charming Mediterranean restaurant that brings the vibrant flavors of Greece to your table. Known for our signature dishes like fresh Greek salad with perfectly ripe tomatoes 
